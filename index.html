@@ -31,27 +31,31 @@
                		 <table class="table table-bordered table-hover">
 				    <tr>
 				      <th>
-				        <button ng-click="sortBy('clientid')">ID</button>
+				        <button ng-click="vm.sortBy('clientid')">ID</button>
 				        <span class="sortorder" ng-show="propertyName === 'clientid'" ng-class="{reverse: reverse}"></span>
 				      </th>
 				      <th>
-				        <button ng-click="sortBy('clientname')">Name</button>
+				        <button ng-click="vm.sortBy('clientname')">Name</button>
 				        <span class="sortorder" ng-show="propertyName === 'clientname'" ng-class="{reverse: reverse}"></span>
 				      </th>
 				      <th>
-				        <button ng-click="sortBy('dateadded')">Date</button>
+				        <button ng-click="vm.sortBy('dateadded')">Date Added</button>
 				        <span class="sortorder" ng-show="propertyName === 'dateadded'" ng-class="{reverse: reverse}"></span>
 				      </th>
 				      <th>
-				        <button ng-click="sortBy('statusStr')">Status</button>
+				        <button ng-click="vm.sortBy('statusStr')">Status</button>
 				        <span class="sortorder" ng-show="propertyName === 'statusStr'" ng-class="{reverse: reverse}"></span>
 				      </th>
+				      <th>&nbsp;
+				      </th>
 				    </tr>
-				    <tr ng-repeat="client in vm.clientEntries | orderBy: '-dateadded'">
+				    <tr ng-repeat="client in vm.clientEntries | orderBy:vm.propertyName:vm.reverse">
 				      <td>{{client.clientid}}</td>
 				      <td>{{client.clientname}}</td>
 				      <td>{{client.dateadded | date:'mediumDate'}}</td>
 				      <td>{{client.statusStr}}</td>
+				      <td><span class="glyphicon glyphicon-trash" ng-click="vm.deleteClient(client.clientid)"></span>
+				      </td>
 				    </tr>
 				  </table>
 	            </div>       

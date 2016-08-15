@@ -7,11 +7,12 @@
         .module('clientManagementTool')
         .controller('ClientManagementTool', ClientManagementTool);
 
-        function ClientManagementTool(client) {  //drs : change this
+        function ClientManagementTool(client, $filter) {  
 
             // vm is our capture variable
             var vm = this;				
-
+            vm.propertyName = 'clientid';
+            vm.reverse = false;
             vm.clientEntries = [];	
             vm.stat = [
 		        {val : "1", statString : "Active"},		        
@@ -22,10 +23,18 @@
             // and puts the results on the vm.clientEntries array
             client.getClient().then(function(results) {
                 vm.clientEntries = results;
+                // vm.clientEntries = orderBy(results, vm.propertyName, vm.reverse);
                 console.log(vm.clientEntries);
             }, function(error) { // Check for errors
                 console.log(error);
             });
+
+            vm.sortBy = function (propertyName){
+            	vm.reverse = (propertyName !== null && vm.propertyName === propertyName)
+        			? !vm.reverse : false;
+    			vm.propertyName = propertyName;
+    			vm.clientEntries = $filter('orderBy')(vm.clientEntries, vm.propertyName, vm.reverse);
+            }
 
             // Submits the time entry that will be called 
             // when we click the "Log Time" button
@@ -38,5 +47,19 @@
                 });
 
             }
+            vm.deleteClient = function(clientid){
+		          var index = -1;
+		          var clientArr = eval(vm.clientEntries );
+		          for( var i = 0; i < clientArr.length; i++ ) {
+		                if( clientArr[i].clientid === clientid ) {
+		                    index = i;
+		                    break;
+		                 }
+		          }
+		          if( index === -1 ) {
+		               alert( "Something gone wrong" );
+		          }
+		          vm.clientEntries.splice( index, 1 );
+		       };
         }
 })();
