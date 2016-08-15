@@ -1,5 +1,37 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
+    <head>
+        <title>Client Management Tool</title>
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body ng-app="clientManagementTool" ng-controller="ClientManagementTool as vm">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Client Management Tool</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+
+        </div>  
+    </body>
+
+    <!-- Application Dependencies -->
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+
+    <!-- Application Scripts -->
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/controllers/ClientManagementTool.js"></script>
+    <script type="text/javascript" src="scripts/services/client.js"></script>
+</html>
+
+<!-- <html lang="en-US">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
 
@@ -9,4 +41,4 @@
 </div>
 
 </body>
-</html>
+</html> -->
