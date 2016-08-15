@@ -19,7 +19,7 @@
                      <input class="form-control" ng-model="vm.client_name" placeholder="Enter a client">
                     </input>
                     <select class="form-control"  ng-model="vm.client_stat">
-						<option ng-repeat="statStr in vm.stat" value="{{statStr.val}}">{{statStr.statString}}</option>
+						<option ng-repeat="statStr in vm.stat" value="{{statStr.statString}}">{{statStr.statString}}</option>
 					</select>
                     <button class="btn btn-primary" ng-click="vm.addNewClient()">Add</button>
                 </form>
@@ -27,20 +27,34 @@
 
         <div class="container">
 	        <div class="col-sm-8">
-	            <div class="well timeentry" ng-repeat="client in vm.clientEntries">
-	                <div class="row">
-	                    <div class="col-sm-8">
-	                        <h4><i class="glyphicon glyphicon-user"></i> 
-	                        #{{client.clientid}} - {{client.clientname}} ({{client.statusStr}})</h4><!-- 
-	                        <p><i class="glyphicon glyphicon-pencil"></i> {{client.dateadded}}</p>      -->             
-	                    </div>
-	                    <div class="col-sm-4 time-numbers">
-                        <h4><i class="glyphicon glyphicon-calendar"></i> 
-                        {{client.dateadded | date:'mediumDate'}}</h4>
-                    </div>
-	                </div>
-	            </div>              
-                
+	            <div class="well">	                
+               		 <table class="table table-bordered table-hover">
+				    <tr>
+				      <th>
+				        <button ng-click="sortBy('clientid')">ID</button>
+				        <span class="sortorder" ng-show="propertyName === 'clientid'" ng-class="{reverse: reverse}"></span>
+				      </th>
+				      <th>
+				        <button ng-click="sortBy('clientname')">Name</button>
+				        <span class="sortorder" ng-show="propertyName === 'clientname'" ng-class="{reverse: reverse}"></span>
+				      </th>
+				      <th>
+				        <button ng-click="sortBy('dateadded')">Date</button>
+				        <span class="sortorder" ng-show="propertyName === 'dateadded'" ng-class="{reverse: reverse}"></span>
+				      </th>
+				      <th>
+				        <button ng-click="sortBy('statusStr')">Status</button>
+				        <span class="sortorder" ng-show="propertyName === 'statusStr'" ng-class="{reverse: reverse}"></span>
+				      </th>
+				    </tr>
+				    <tr ng-repeat="client in vm.clientEntries | orderBy: '-dateadded'">
+				      <td>{{client.clientid}}</td>
+				      <td>{{client.clientname}}</td>
+				      <td>{{client.dateadded | date:'mediumDate'}}</td>
+				      <td>{{client.statusStr}}</td>
+				    </tr>
+				  </table>
+	            </div>       
             </div>    
 	        </div>
 	    </div>

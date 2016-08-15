@@ -1,18 +1,18 @@
 [
     {
-      "clientid":"1",
+      "clientid":10,
       "clientname": "Person 1",
       "dateadded":"2012-04-23T18:25:43.511Z",
       "status":"1"
     },
     {
-      "clientid":"2",
+      "clientid":45,
       "clientname": "Person 2",
-      "dateadded":"2013-04-25T01:15:43.511Z",
+      "dateadded":"2011-04-25T01:15:43.511Z",
       "status":"1"
     },
     {
-      "clientid":"3",
+      "clientid":3,
       "clientname": "Person 3",
       "dateadded":"2016-06-25T06:24:42.511Z",
       "status":"0"

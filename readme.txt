@@ -27,7 +27,6 @@ Requirements
 
 
 to do :
-- add client
 - delete client
 - update
 - sorting

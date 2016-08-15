@@ -34,7 +34,7 @@
                     "clientid":vm.client_id,
                     "clientname":vm.client_name,
                     "dateadded": new Date(),
-                    "status": vm.client_stat
+                    "statusStr": vm.client_stat
                 });
 
             }
