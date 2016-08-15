@@ -24,3 +24,11 @@ Requirements
 
 * Angular and Bootstrap
 * Create your custom MVC Framework (doesn't need to be a complex mvc just a simple mvc framework that can exhibit your skill in php)
+
+
+to do :
+- add client
+- delete client
+- update
+- sorting
+- pagination

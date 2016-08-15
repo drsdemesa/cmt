@@ -13,6 +13,16 @@
                     <a class="navbar-brand" href="#">Client Management Tool</a>
                 </div>
             </div>
+            <form class="navbar-form">
+                    <input class="form-control" ng-model="vm.client_id" placeholder="Enter an ID">
+                    </input>
+                     <input class="form-control" ng-model="vm.client_name" placeholder="Enter a client">
+                    </input>
+                    <select class="form-control"  ng-model="vm.client_stat">
+						<option ng-repeat="statStr in vm.stat" value="{{statStr.val}}">{{statStr.statString}}</option>
+					</select>
+                    <button class="btn btn-primary" ng-click="vm.addNewClient()">Add</button>
+                </form>
         </nav>
 
         <div class="container">
@@ -21,7 +31,7 @@
 	                <div class="row">
 	                    <div class="col-sm-8">
 	                        <h4><i class="glyphicon glyphicon-user"></i> 
-	                        #{{client.clientid}} - {{client.clientname}}</h4><!-- 
+	                        #{{client.clientid}} - {{client.clientname}} ({{client.statusStr}})</h4><!-- 
 	                        <p><i class="glyphicon glyphicon-pencil"></i> {{client.dateadded}}</p>      -->             
 	                    </div>
 	                    <div class="col-sm-4 time-numbers">
@@ -29,7 +39,9 @@
                         {{client.dateadded | date:'mediumDate'}}</h4>
                     </div>
 	                </div>
-	            </div>
+	            </div>              
+                
+            </div>    
 	        </div>
 	    </div>
     </body>

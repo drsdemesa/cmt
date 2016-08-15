@@ -15,6 +15,10 @@
                 // $promise.then allows us to intercept the results
                 // which we will use later
                 return Client.query().$promise.then(function(results) {
+                	angular.forEach(results, function(result) {
+
+                        result.statusStr = (result.status == 1)? "Active": "Inactive";
+                    });
                     return results;
                 }, function(error) { // Check for errors
                     console.log(error);
