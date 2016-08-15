@@ -1,3 +1,3 @@
 <?php
-	print "<br>Hello controller world.";
+	//print "<br>Hello controller world.";
 ?>

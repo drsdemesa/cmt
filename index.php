@@ -3,7 +3,7 @@
 	include 'model/db.php';	
 	include 'index.html';
 
-	print "<br>Hello world";
+	//print "<br>Hello world"; //for debugging
 
 
 ?>

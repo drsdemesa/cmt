@@ -14,7 +14,7 @@
                 </div>
             </div>
             <form class="navbar-form">
-                    <input class="form-control" ng-model="vm.client_id" placeholder="Enter an ID">
+                    <input class="form-control" ng-model="vm.client_id" placeholder="Enter an ID" type="number">
                     </input>
                      <input class="form-control" ng-model="vm.client_name" placeholder="Enter a client">
                     </input>
@@ -50,7 +50,7 @@
 				      </th>
 				    </tr>
 				    <tr ng-repeat="client in vm.clientEntries | orderBy:vm.propertyName:vm.reverse">
-				      <td>{{client.clientid}}</td>
+				      <td>{{client.clientid|number}}</td>
 				      <td>{{client.clientname}}</td>
 				      <td>{{client.dateadded | date:'mediumDate'}}</td>
 				      <td>{{client.statusStr}}</td>
@@ -58,6 +58,9 @@
 				      </td>
 				    </tr>
 				  </table>
+				  <div data-pagination="" data-num-pages="numPages()" 
+			      data-current-page="currentPage" data-max-size="maxSize"  
+			      data-boundary-links="true"></div>
 	            </div>       
             </div>    
 	        </div>

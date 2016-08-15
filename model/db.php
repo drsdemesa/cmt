@@ -1,3 +1,3 @@
 <?php 
-	print "<br>hello db world.";
+	//print "<br>hello db world.";
 ?>
